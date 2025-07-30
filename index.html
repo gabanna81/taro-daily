@@ -136,7 +136,7 @@
           if (card.classList.contains('selected')) {
             card.classList.remove('selected');
             selectedCards = selectedCards.filter(n => n !== cardName);
-          } else if (selectedCards.length < 3) {
+          } else if (selectedCards.length < 1) {
             card.classList.add('selected');
             selectedCards.push(cardName);
           }
@@ -153,7 +153,7 @@
       }
 
       confirmButton.addEventListener('click', function () {
-        if (selectedCards.length === 3) {
+        if (selectedCards.length === 1) {
           const data = JSON.stringify({ cards: selectedCards });
           try {
             if (TelegramWebApp) {
@@ -166,7 +166,7 @@
             alert('Ошибка отправки');
           }
         } else {
-          alert('Выбери 3 карты');
+          alert('Выбери 1 карту');
         }
       });
       updateUI();
